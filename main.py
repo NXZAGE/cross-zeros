@@ -1,4 +1,4 @@
-from app import Core 
+from app.core import Core 
 
 def main():
     core = Core()

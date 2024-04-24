@@ -1,8 +1,8 @@
-from Scene import Scene 
+from scenes.Scene import Scene 
 
-class MainMenuScene(Scene):
-    def __inti__(self):
-        super().__init__();
+class GameScene(Scene):
+    def __init__(self):
+        super().__init__()
         
     def display(self, screen):
         pass
