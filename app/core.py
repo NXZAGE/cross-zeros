@@ -43,7 +43,18 @@ class Core:
                 self.__is_terminated = True
             
     def __check_scene_change(self):
-        pass 
+        for event in self.__events:
+            if event == DIFFICULTY_0_SELECTED:
+                self.__current_scene = GameScene(0)
+            elif event == DIFFICULTY_1_SELECTED:
+                self.__current_scene = GameScene(1)
+            elif event == DIFFICULTY_2_SELECTED:
+                self.__current_scene = GameScene(2)
+                
+            if event == ACTIVATE_LEVEL_SELECT_SCENE:
+                self.__current_scene = LevelSelectScene()
+                
+            
     
     
     

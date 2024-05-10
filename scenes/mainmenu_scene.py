@@ -1,8 +1,10 @@
+import pygame
 from scenes.Scene import Scene 
 from design_components.background import Background
 from design_components.ticker import Ticker
 from design_components.mainmenu_button import MainmenuButton
 from design_components.colors import *
+from app.events import MAINMENU_BUTTON_CLICKED, ACTIVATE_LEVEL_SELECT_SCENE
 
 
 class MainmenuScene(Scene):
@@ -21,5 +23,8 @@ class MainmenuScene(Scene):
     def update(self, events):
         for component in self.__components:
             component.update(events)
-        pass 
+         
+        for event in events:
+            if event == MAINMENU_BUTTON_CLICKED:
+                pygame.event.post(ACTIVATE_LEVEL_SELECT_SCENE)
     
