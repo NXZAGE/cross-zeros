@@ -15,7 +15,7 @@ class GameScene(Scene):
         self.player = 0
         self.__components = [
             Background(),
-            Ticker("kill yourself", BLOOD_COLOR, 2),
+            Ticker("kill yourself", BLOOD_COLOR, 2)
         ]    
         
         self.__retry_button = RetryButton()
@@ -25,13 +25,13 @@ class GameScene(Scene):
     def check_end(self):
         if self.__game_ended: return
         if self.__game_field.cross_won():
-            print("YOU WON")
+            self.__components[1] = Ticker("you won (( ", BLOOD_COLOR, 1)
             self.__game_ended = True
         if self.__game_field.zero_won():
-            print("YOU LOSE")
+            self.__components[1] = Ticker("loooooser", BLOOD_COLOR, 3)
             self.__game_ended = True 
         if self.__game_field.draw():
-            print("DRAW")
+            self.__components[1] = Ticker("draw", BLOOD_COLOR, 5)
             self.__game_ended = True 
             
         if self.__game_ended:
